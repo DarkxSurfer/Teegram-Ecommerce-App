@@ -1,15 +1,23 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hackathon/src/common_widgets/categories.dart';
 import 'package:hackathon/src/common_widgets/product.dart';
 import 'package:hackathon/src/constants/image_strings.dart';
+import 'package:hackathon/src/provider/cart_provider.dart';
+import 'package:hackathon/src/views/cart_screen.dart';
 import 'package:hackathon/src/views/category_screen.dart';
 import 'package:hackathon/src/views/product_screen.dart';
+import 'package:hackathon/src/views/profile_screen.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<CartProvider>(context);
+
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(
@@ -36,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                           height: 219, child: Image.asset(product1shoe)),
                     ),
                     const Positioned(
-                        top: 10,
+                        top: 20,
                         left: 20,
                         child: Text(
                           "Nike Air Max 270",
@@ -46,14 +54,14 @@ class HomeScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold),
                         )),
                     const Positioned(
-                        top: 30,
+                        top: 40,
                         left: 20,
                         child: Text(
                           "Mens Shoes",
                           style: TextStyle(fontSize: 13, color: Colors.grey),
                         )),
                     const Positioned(
-                        bottom: 10,
+                        bottom: 20,
                         left: 20,
                         child: Text(
                           "\$290.00",
@@ -83,76 +91,8 @@ class HomeScreen extends StatelessWidget {
                   )
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        color: const Color(0xffAA14F0),
-                        borderRadius: BorderRadius.circular(10)),
-                    height: 34,
-                    width: 38,
-                    child: const Center(
-                      child: Text(
-                        "All",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(10)),
-                    height: 34,
-                    width: 88,
-                    child: const Center(
-                      child: Text(
-                        "Electronics",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(10)),
-                    height: 34,
-                    width: 72,
-                    child: const Center(
-                      child: Text(
-                        "Fasion",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(10)),
-                    height: 34,
-                    width: 61,
-                    child: const Center(
-                      child: Text(
-                        "Shoes",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(10)),
-                    height: 34,
-                    width: 82,
-                    child: const Center(
-                      child: Text(
-                        "Furniture",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              Filters(),
+              
               const SizedBox(
                 height: 20,
               ),
@@ -173,14 +113,19 @@ class HomeScreen extends StatelessWidget {
                     },
                     child: const Text("See All"),
                   ),
-
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  MyProduct(name: "Leather Women Bag", image: product2bag, price: "\$135.00"),
-                   MyProduct(name: "Wireless Headphones", image: product3HPs, price: "\$65.00"),
+                  MyProduct(
+                      name: "Leather Women Bag",
+                      image: product2bag,
+                      price: "\$135.00"),
+                  MyProduct(
+                      name: "Wireless Headphones",
+                      image: product3HPs,
+                      price: "\$65.00"),
                 ],
               ),
               Row(
@@ -199,6 +144,75 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ),
+                  );
+                },
+                child: Icon(
+                  Iconsax.home,
+                  color: Colors.grey,
+                )),
+            GestureDetector(
+              onTap: () {},
+              child: Icon(Iconsax.heart, color: Colors.grey),
+            ),
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CartScreen()));
+                  },
+                  child: const Icon(
+                    Iconsax.shopping_cart,
+                    color: Colors.grey,
+                  ),
+                ),
+                cart.items.isNotEmpty
+                    ? Positioned(
+                        right: -2,
+                        top: -5,
+                        child: Container(
+                          height: 15,
+                          width: 15,
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.red),
+                          child: Center(
+                            child: Text(
+                              cart.items.length.toString(),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 10),
+                            ),
+                          ),
+                        ),
+                      )
+                    : SizedBox(),
+              ],
+            ),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ProfileScreen()));
+                },
+                child: const Icon(
+                  Icons.person_outline,
+                  color: Colors.grey,
+                ))
+          ],
         ),
       ),
     );
