@@ -12,7 +12,7 @@ Table of Contents
 • License
 • Contact
 
-**Features**
+## Features
 
 • User Authentication: Secure login and registration with Firebase Authentication.
 • Product Listings: Browse through a wide range of Clothings.
@@ -22,7 +22,7 @@ Table of Contents
 • Responsive Design: Optimized for both mobile and web interfaces.
 • Personalized Recommendations: AI-powered suggestions based on browsing and purchase history.
 
-**Technologies**
+## Technologies
 
 • Frontend: Flutter, Dart
 • Backend: Firebase (Authentication, Firestore, Cloud Functions)
@@ -31,53 +31,53 @@ Table of Contents
 • Design: Figma (for UI/UX design)
 • CI/CD: GitHub Actions for automated builds and deployments
 
-**Installation**
-**Prerequisites**
+## Installation
+Prerequisites
 
     Flutter SDK: ^3.0.0
     Firebase account
 
-**Steps**
+## Steps
 
     Clone the repository:
     https://github.com/DarkxSurfer/Teegram-Ecommerce-App.git
     cd teegram
 
-Navigate to the project directory:
+## Navigate to the project directory:
 
     cd teegram
     
 
-**Install dependencies:**
+## Install dependencies:
 
 
     flutter pub get
 
-**Set up Firebase:**
+## Set up Firebase:
 
     Add your google-services.json (for Android) and GoogleService-Info.plist (for iOS) files.
 
-**Run the application:**
+## Run the application:
 
     flutter run
 
-**Usage**
-Running the Application
+## Usage
+Running the Application:
 
     flutter run
 
-**Admin Panel**
+## Admin Panel
 
     Access the admin panel at /admin for managing products, orders, and users.
 
-**API Endpoints**
+## API Endpoints
 
     GET /products: Fetch a list of t-shirts
     POST /order: Place a new order
 
-**Screenshots**
+## Screenshots
 
-**Contributing**
+## Contributing
 
 Contributions are welcome! Please fork the repository and use a feature branch. Pull requests should be well-documented and tested.
 Steps to Contribute
@@ -88,7 +88,7 @@ Steps to Contribute
     Push to the branch: git push origin feature/my-new-feature.
     Submit a pull request.
 
-**License**
+## License
 
     This project is licensed under the MIT License - see the LICENSE file for details.
 ## Contact
