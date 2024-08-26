@@ -1,29 +1,42 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hackathon/src/common_widgets/categories.dart';
+import 'package:hackathon/src/common_widgets/custom_drawer.dart';
 import 'package:hackathon/src/common_widgets/product.dart';
+import 'package:hackathon/src/constants/colors.dart';
 import 'package:hackathon/src/constants/image_strings.dart';
-import 'package:hackathon/src/provider/cart_provider.dart';
-import 'package:hackathon/src/views/cart_screen.dart';
 import 'package:hackathon/src/views/category_screen.dart';
 import 'package:hackathon/src/views/product_screen.dart';
-import 'package:hackathon/src/views/profile_screen.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:provider/provider.dart';
+import 'package:hackathon/src/views/products/wireless_hp.dart';
+import 'package:hackathon/src/views/products/women_bag.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final cart = Provider.of<CartProvider>(context);
+  State<HomeScreen> createState() => _HomeScreenState();
+}
 
+class _HomeScreenState extends State<HomeScreen> {
+  bool _isFavorite = false;
+
+  void _toggleFavorite() {
+    setState(() {
+      _isFavorite = !_isFavorite;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      backgroundColor: backgroundColor,
+      drawer: const Drawer(
+        child: CustomDrawer(),
+      ),
       appBar: AppBar(
+        backgroundColor: backgroundColor,
         title: const Text('Home'),
         centerTitle: true,
-        actions: [const Icon(Icons.search_outlined)],
+        actions: const [Icon(Icons.search_outlined)],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -40,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                     Positioned(
                       top: -05,
                       right: 0,
-                      child: Container(
+                      child: SizedBox(
                           height: 219, child: Image.asset(product1shoe)),
                     ),
                     const Positioned(
@@ -53,12 +66,12 @@ class HomeScreen extends StatelessWidget {
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                         )),
-                    const Positioned(
+                     Positioned(
                         top: 40,
                         left: 20,
                         child: Text(
                           "Mens Shoes",
-                          style: TextStyle(fontSize: 13, color: Colors.grey),
+                          style: TextStyle(fontSize: 13, color: Colors.black.withOpacity(0.4)),
                         )),
                     const Positioned(
                         bottom: 20,
@@ -85,14 +98,13 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => CategoryScreen()));
+                              builder: (context) => const CategoryScreen()));
                     },
                     child: const Text("See All"),
                   )
                 ],
               ),
-              Filters(),
-              
+              const Filters(),
               const SizedBox(
                 height: 20,
               ),
@@ -109,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProductScreen()));
+                              builder: (context) => const ProductScreen()));
                     },
                     child: const Text("See All"),
                   ),
@@ -119,13 +131,23 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   MyProduct(
-                      name: "Leather Women Bag",
-                      image: product2bag,
-                      price: "\$135.00"),
+                    name: "Leather Women Bag",
+                    image: product2bag,
+                    price: "\$135.00",
+                    goTo: const WomenBag(),
+                    isFavorite: _isFavorite,
+                    onFavoriteToggle: (bool isFavorite) {
+                      _toggleFavorite();
+                    },
+                  ),
                   MyProduct(
-                      name: "Wireless Headphones",
-                      image: product3HPs,
-                      price: "\$65.00"),
+                    name: "Wireless Headphones",
+                    image: product3HPs,
+                    price: "\$65.00",
+                    goTo: const WirelessHp(),
+                    isFavorite: false,
+                    onFavoriteToggle: (bool isFavorite) {},
+                  ),
                 ],
               ),
               Row(
@@ -144,75 +166,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
-                    ),
-                  );
-                },
-                child: Icon(
-                  Iconsax.home,
-                  color: Colors.grey,
-                )),
-            GestureDetector(
-              onTap: () {},
-              child: Icon(Iconsax.heart, color: Colors.grey),
-            ),
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CartScreen()));
-                  },
-                  child: const Icon(
-                    Iconsax.shopping_cart,
-                    color: Colors.grey,
-                  ),
-                ),
-                cart.items.isNotEmpty
-                    ? Positioned(
-                        right: -2,
-                        top: -5,
-                        child: Container(
-                          height: 15,
-                          width: 15,
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle, color: Colors.red),
-                          child: Center(
-                            child: Text(
-                              cart.items.length.toString(),
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 10),
-                            ),
-                          ),
-                        ),
-                      )
-                    : SizedBox(),
-              ],
-            ),
-            GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ProfileScreen()));
-                },
-                child: const Icon(
-                  Icons.person_outline,
-                  color: Colors.grey,
-                ))
-          ],
         ),
       ),
     );

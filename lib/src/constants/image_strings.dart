@@ -23,4 +23,5 @@ String mirrorIcon = "assets/Icons/mirroricon.png";
 String phoneIcon = "assets/Icons/phoneicon.png";
 String hobbyIcon = "assets/Icons/hobbyicon.png";
 String sportIcon = "assets/Icons/sporticon.png";
+String paymentIcon = "assets/payment_icon.png";
 

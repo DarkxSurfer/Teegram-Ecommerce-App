@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CategoryBox extends StatelessWidget {
   CategoryBox({super.key, required this.text, required this.icon});
 

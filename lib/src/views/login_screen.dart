@@ -4,7 +4,9 @@ import 'package:hackathon/src/constants/image_strings.dart';
 import 'package:hackathon/src/views/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key,});
+
+ 
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -26,8 +28,8 @@ class _LoginScreenState extends State<LoginScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(logo),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               "Email",
               style: TextStyle(
                 fontSize: 16,
@@ -35,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Form(
               child: TextFormField(
                 controller: emailController,
@@ -51,22 +53,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   prefixIcon: Icon(Icons.email_outlined),
                 ),
-                validator: (value) {
-                  bool emailValid = RegExp(
-                          r"^[a-zA-Z0-9.a-zA-z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                      .hasMatch(value!);
-                  if (value.isEmpty) {
-                    return "Enter valid Email";
-                  } else if (!emailValid) {
-                    return "Enter valid Email";
-                  }
-                },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               "Password",
               style: TextStyle(
                 fontSize: 16,
@@ -74,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Form(
               child: TextFormField(
                 controller: passController,
@@ -99,17 +91,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Icon(
                           passToggle ? Icons.visibility : Icons.visibility_off),
                     )),
-                validator: (value) {
-                  setState(() {});
-                  if (value!.isEmpty) {
-                    return "Enter Password";
-                  } else if (passController.text.length < 6) {
-                    return "Password length should be more than 6";
-                  }
-                },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             InkWell(
@@ -117,14 +101,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 setState(() {
                   signIn(context, emailController.text, passController.text);
 
-                  emailController.clear();
-                  passController.clear();
                 });
               },
               child: Container(
                 height: 50,
                 decoration: BoxDecoration(
-                    color: Color(0xffAA14F0),
+                    color: const Color(0xffAA14F0),
                     borderRadius: BorderRadius.circular(8)),
                 child: const Center(
                   child: Text("Sign In",
@@ -135,7 +117,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-           
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Already have an account?"),
+                TextButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupScreen()));
+                    }, child: const Text("Sign In")),
+              ],
+            ),
           ],
         ),
       ),

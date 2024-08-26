@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Filters extends StatefulWidget {
   const Filters({super.key});
 
@@ -11,7 +10,13 @@ class Filters extends StatefulWidget {
 class _FiltersState extends State<Filters> {
   int selectedIndex = 0;
 
-  final List<String> filters = ["All", "Electronics", "Fasion", "Shoes","Furniture"];
+  final List<String> filters = [
+    "All",
+    "Electronics",
+    "Fasion",
+    "Shoes",
+    "Furniture"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +37,10 @@ class _FiltersState extends State<Filters> {
               },
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 8),
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
-                  color: isSelected ? const Color(0xffAA14F0): Colors.grey,
+                  color: isSelected ? const Color(0xffAA14F0) : Colors.grey,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
@@ -42,7 +48,7 @@ class _FiltersState extends State<Filters> {
                     filters[index],
                     style: TextStyle(
                       color: isSelected ? Colors.white : Colors.white,
-                      fontSize: 16,
+                      fontSize: 14,
                     ),
                   ),
                 ),

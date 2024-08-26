@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon/src/constants/image_strings.dart';
 import 'package:hackathon/src/provider/cart_provider.dart';
+import 'package:hackathon/src/views/navigation_toggle.dart';
+import 'package:hackathon/src/views/success_screen.dart';
 import 'package:provider/provider.dart';
 
 class CustomBottomSheet extends StatelessWidget {
+  void goToHome(context) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const NavigationToggle()));
+  }
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<CartProvider>(context);
@@ -119,7 +127,9 @@ class CustomBottomSheet extends StatelessWidget {
                     Text(
                       '\$${provider.totalAmount.toString()}',
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: height * 0.02),
+                          fontWeight: FontWeight.bold,
+                          fontSize: height * 0.02,
+                          color: Color(0xffAA14F0)),
                     ),
                   ],
                 ),
@@ -128,11 +138,22 @@ class CustomBottomSheet extends StatelessWidget {
           ),
           SizedBox(height: height * 0.02),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => SuccessScreen(
+                          image: paymentIcon,
+                          title: "Payment Success!",
+                          subTitle: 'Your item will be shipped soon',
+                          onPressed: () {
+                            goToHome(context);
+                          })));
+            },
             child: Container(
                 height: 50,
                 decoration: BoxDecoration(
-                    color: const Color(0xff4157FF),
+                    color: const Color(0xffAA14F0),
                     borderRadius: BorderRadius.circular(40)),
                 child: const Center(
                   child: Text("Check Out",

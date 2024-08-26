@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon/src/common_widgets/custom_profile.dart';
 
+import '../constants/colors.dart';
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: backgroundColor,
       appBar: AppBar(
+        backgroundColor: backgroundColor,
+
         title: const Text(
           'My Profile',
-          style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-              color: Color(0xff090F47)),
         ),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -37,17 +39,17 @@ class ProfileScreen extends StatelessWidget {
             height: 20,
           ),
           CustomProfileOptions(
-              text1: "Edit Profile", icon1: Icon(Icons.contact_page_outlined)),
-          Divider(),
+              text1: "Edit Profile", icon1: const Icon(Icons.contact_page_outlined)),
+          const Divider(),
           CustomProfileOptions(
               text1: "My Orders",
-              icon1: Icon(Icons.insert_page_break_outlined)),
-          Divider(),
+              icon1: const Icon(Icons.insert_page_break_outlined)),
+          const Divider(),
           CustomProfileOptions(
-              text1: "Billing", icon1: Icon(Icons.access_time_rounded)),
-          Divider(),
-          CustomProfileOptions(text1: "FAQ", icon1: Icon(Icons.question_mark)),
-          Divider(),
+              text1: "Billing", icon1: const Icon(Icons.access_time_rounded)),
+          const Divider(),
+          CustomProfileOptions(text1: "FAQ", icon1: const Icon(Icons.question_mark)),
+          const Divider(),
         ]),
       ),
     );

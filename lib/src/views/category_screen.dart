@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon/src/common_widgets/category_box.dart';
+import 'package:hackathon/src/constants/colors.dart';
 import 'package:hackathon/src/constants/image_strings.dart';
 
 class CategoryScreen extends StatelessWidget {
@@ -8,10 +9,14 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: backgroundColor,
+
       appBar: AppBar(
+        backgroundColor: backgroundColor,
+
         title: const Text('Category'),
         centerTitle: true,
-        actions: [const Icon(Icons.search_outlined)],
+        actions: const [Icon(Icons.search_outlined)],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -31,7 +36,7 @@ class CategoryScreen extends StatelessWidget {
                   Positioned(
                     top: -05,
                     right: 0,
-                    child: Container(
+                    child: SizedBox(
                         height: 219, child: Image.asset(product1shoe)),
                   ),
                   const Positioned(
@@ -62,7 +67,7 @@ class CategoryScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       )),
                 ])),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             
@@ -74,7 +79,7 @@ class CategoryScreen extends StatelessWidget {
                 CategoryBox(text: "Shoes", icon: shoeIcon),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
              Row(
@@ -85,7 +90,7 @@ class CategoryScreen extends StatelessWidget {
                 CategoryBox(text: "Music", icon: micIcon),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
              Row(
@@ -96,7 +101,7 @@ class CategoryScreen extends StatelessWidget {
                 CategoryBox(text: "Phone", icon: shoeIcon),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
              Row(

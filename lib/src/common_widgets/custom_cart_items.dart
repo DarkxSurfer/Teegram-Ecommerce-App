@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon/src/constants/colors.dart';
 import 'package:hackathon/src/provider/cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -24,12 +25,13 @@ class CustomCartItemWidget extends StatelessWidget {
     final cart = Provider.of<CartProvider>(context, listen: false);
 
     return Card(
-      margin: EdgeInsets.symmetric(
+      color: backgroundColor.withOpacity(0.4),
+      margin: const EdgeInsets.symmetric(
         horizontal: 15,
         vertical: 4,
       ),
       child: Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Row(
           children: [
             Image.network(
@@ -38,27 +40,27 @@ class CustomCartItemWidget extends StatelessWidget {
               width: 50,
               fit: BoxFit.cover,
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
+                   Text(
                     'Uni Sex',
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: Colors.black.withOpacity(0.4),
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     '\$$price',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -68,21 +70,24 @@ class CustomCartItemWidget extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  icon: Icon(Icons.remove, color: Colors.blue),
+                  icon: const Icon(Icons.remove, color: Colors.blue),
                   onPressed: () {
                     if (quantity > 1) {
                       cart.updateItemQuantity(productId, quantity - 1);
+                    }
+                    else{
+                      cart.removeItem(productId);
                     }
                   },
                 ),
                 Text(
                   '$quantity',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.add, color: Colors.blue),
+                  icon: const Icon(Icons.add, color: Colors.blue),
                   onPressed: () {
                     cart.updateItemQuantity(productId, quantity + 1);
                   },

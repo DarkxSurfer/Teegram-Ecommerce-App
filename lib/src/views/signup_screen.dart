@@ -4,7 +4,9 @@ import 'package:hackathon/src/constants/image_strings.dart';
 import 'package:hackathon/src/views/login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+  const SignupScreen({
+    super.key,
+  });
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -12,7 +14,8 @@ class SignupScreen extends StatefulWidget {
 
 TextEditingController emailController = TextEditingController();
 TextEditingController passController = TextEditingController();
-TextEditingController FnameController = TextEditingController();
+TextEditingController confirmPasswordController = TextEditingController();
+TextEditingController fNameController = TextEditingController();
 bool passToggle = true;
 
 class _SignupScreenState extends State<SignupScreen> {
@@ -39,7 +42,7 @@ class _SignupScreenState extends State<SignupScreen> {
               const SizedBox(height: 20),
               Form(
                 child: TextFormField(
-                  controller: FnameController,
+                  controller: fNameController,
                   decoration: const InputDecoration(
                       contentPadding: EdgeInsets.only(
                           right: 10, left: 10, top: 10, bottom: 10),
@@ -78,16 +81,6 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     prefixIcon: Icon(Icons.email_outlined),
                   ),
-                  validator: (value) {
-                    bool emailValid = RegExp(
-                            r"^[a-zA-Z0-9.a-zA-z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                        .hasMatch(value!);
-                    if (value.isEmpty) {
-                      return "Enter valid Email";
-                    } else if (!emailValid) {
-                      return "Enter valid Email";
-                    }
-                  },
                 ),
               ),
               const SizedBox(
@@ -127,14 +120,6 @@ class _SignupScreenState extends State<SignupScreen> {
                             ? Icons.visibility
                             : Icons.visibility_off),
                       )),
-                  validator: (value) {
-                    setState(() {});
-                    if (value!.isEmpty) {
-                      return "Enter Password";
-                    } else if (passController.text.length < 6) {
-                      return "Password length should be more than 6";
-                    }
-                  },
                 ),
               ),
               const SizedBox(
@@ -143,7 +128,11 @@ class _SignupScreenState extends State<SignupScreen> {
               InkWell(
                 onTap: () {
                   setState(() {
-                    signUp(context, emailController.text, passController.text);
+                    signUp(
+                      context,
+                      emailController.text,
+                      passController.text,
+                    );
 
                     emailController.clear();
                     passController.clear();

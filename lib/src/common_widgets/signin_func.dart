@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hackathon/src/views/home_screen.dart';
-import 'package:hackathon/src/views/login_screen.dart';
+import 'package:hackathon/src/views/navigation_toggle.dart';
 
 bool login = false;
 
@@ -14,7 +14,7 @@ Future<void> signUp(BuildContext context, String email, String password) async {
 
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => LoginScreen()),
+      MaterialPageRoute(builder: (context) => const NavigationToggle()),
     );
     print('User registered successfully.');
   } on FirebaseAuthException catch (e) {
@@ -43,7 +43,7 @@ Future<void> signIn(BuildContext context, String email, String password) async {
 
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
+      MaterialPageRoute(builder: (context) => const HomeScreen()),
     );
   } on FirebaseAuthException catch (e) {
     if (e.code == 'user-not-found') {
