@@ -4,9 +4,13 @@
 Table of Contents
 
 • Features
+
 • Technologies
+
 • Installation
+
 • Usage
+
 • Screenshots
 • Contributing
 • License
