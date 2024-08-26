@@ -1,8 +1,6 @@
 **Teegram**
 
-Your go-to platform for custom-designed t-shirts
-
-Teegram is a modern ecommerce application designed for users to browse, customize, and purchase t-shirts. With its user-friendly interface, real-time customization options, and secure checkout process, Teegram offers a seamless shopping experience for fashion enthusiasts and casual shoppers alike.
+-Teegram is a modern ecommerce application designed for users to browse, customize, and purchase Clothings. With its user-friendly interface, real-time customization options, and secure checkout process, Teegram offers a seamless shopping experience for fashion enthusiasts and casual shoppers alike.
 Table of Contents
 
     Features
@@ -43,22 +41,18 @@ Table of Contents
 **Steps**
 
     Clone the repository:
-
-    bash
-
-git clone https://github.com/yourusername/teegram.git
+    https://github.com/DarkxSurfer/Teegram-Ecommerce-App.git
+    cd teegram
 
 Navigate to the project directory:
 
-bash
-
-cd teegram
+    cd teegram
+    
 
 **Install dependencies:**
 
-bash
 
-flutter pub get
+    flutter pub get
 
 **Set up Firebase:**
 
@@ -66,21 +60,12 @@ flutter pub get
 
 **Run the application:**
 
-bash
-
     flutter run
 
 **Usage**
 Running the Application
 
-bash
-
-flutter run
-
-Customizing T-Shirts
-
-    Navigate to the product page, select a t-shirt, and use the customization tool to change colors, sizes, and add custom designs.
-    Preview your design in real-time before adding it to the cart.
+    flutter run
 
 **Admin Panel**
 
@@ -106,10 +91,10 @@ Steps to Contribute
 
 **License**
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+    This project is licensed under the MIT License - see the LICENSE file for details.
 ## Contact
 For any inquiries, feel free to reach out:
 
-- **Meezaab E Rehmat**
-- Email: darkxurfer@gmail.com
-- LinkedIn: [Meezaab E Rehmat](https://www.linkedin.com/in/darksurfer/)
+    - **Meezaab E Rehmat**
+    - Email: darkxurfer@gmail.com
+    - LinkedIn: [Meezaab E Rehmat](https://www.linkedin.com/in/darksurfer/)
