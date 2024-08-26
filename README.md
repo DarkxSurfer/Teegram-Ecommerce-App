@@ -1,36 +1,35 @@
-**Teegram**
+'# Teegram'
 
 -Teegram is a modern ecommerce application designed for users to browse, customize, and purchase Clothings. With its user-friendly interface, real-time customization options, and secure checkout process, Teegram offers a seamless shopping experience for fashion enthusiasts and casual shoppers alike.
 Table of Contents
 
-    Features
-    Technologies
-    Installation
-    Usage
-    Screenshots
-    Contributing
-    License
-    Contact
+• Features
+• Technologies
+• Installation
+• Usage
+• Screenshots
+• Contributing
+• License
+• Contact
 
 **Features**
 
-    User Authentication: Secure login and registration with Firebase Authentication.
-    Product Listings: Browse through a wide range of t-shirt designs.
-    Custom T-Shirt Design: Real-time customization options, including color, size, and design placement.
-    Shopping Cart: Easily add, update, or remove items from the cart.
-    Checkout Process: Seamless integration with payment gateways for secure transactions.
-    Order Tracking: View order history and track your purchases.
-    Responsive Design: Optimized for both mobile and web interfaces.
-    Personalized Recommendations: AI-powered suggestions based on browsing and purchase history.
+• User Authentication: Secure login and registration with Firebase Authentication.
+• Product Listings: Browse through a wide range of Clothings.
+• Shopping Cart: Easily add, update, or remove items from the cart.
+• Checkout Process: Seamless integration with payment gateways for secure transactions.
+• Order Tracking: View order history and track your purchases.
+• Responsive Design: Optimized for both mobile and web interfaces.
+• Personalized Recommendations: AI-powered suggestions based on browsing and purchase history.
 
 **Technologies**
 
-    Frontend: Flutter, Dart
-    Backend: Firebase (Authentication, Firestore, Cloud Functions)
-    State Management: Provider, Riverpod, Bloc
-    Payment Gateway: Stripe API, PayPal SDK
-    Design: Figma (for UI/UX design)
-    CI/CD: GitHub Actions for automated builds and deployments
+• Frontend: Flutter, Dart
+• Backend: Firebase (Authentication, Firestore, Cloud Functions)
+• State Management: Provider
+• Payment Gateway: Stripe API, PayPal SDK
+• Design: Figma (for UI/UX design)
+• CI/CD: GitHub Actions for automated builds and deployments
 
 **Installation**
 **Prerequisites**
