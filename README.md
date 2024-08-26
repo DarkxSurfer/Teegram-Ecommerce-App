@@ -1,4 +1,4 @@
-'# Teegram'
+# Teegram
 
 -Teegram is a modern ecommerce application designed for users to browse, customize, and purchase Clothings. With its user-friendly interface, real-time customization options, and secure checkout process, Teegram offers a seamless shopping experience for fashion enthusiasts and casual shoppers alike.
 Table of Contents
