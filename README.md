@@ -112,6 +112,6 @@ Steps to Contribute
 ## Contact
 For any inquiries, feel free to reach out:
 
-    - **Meezaab E Rehmat**
+    - Meezaab E Rehmat
     - Email: darkxurfer@gmail.com
     - LinkedIn: [Meezaab E Rehmat](https://www.linkedin.com/in/darksurfer/)
