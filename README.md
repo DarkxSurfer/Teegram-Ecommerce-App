@@ -94,7 +94,8 @@ Running the Application:
     POST /order: Place a new order
 
 ## Screenshots
-[Watch the video](https://github.com/DarkxSurfer/Teegram-Ecommerce-App/raw/video.mp4)
+
+[Watch the video](https://www.linkedin.com/feed/update/urn:li:activity:7234724974198947840/)
 
 
 ## Contributing
