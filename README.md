@@ -94,11 +94,8 @@ Running the Application:
     POST /order: Place a new order
 
 ## Screenshots
+[Watch the video](https://github.com/DarkxSurfer/Teegram-Ecommerce-App/raw/video.mp4)
 
-<video width="320" height="240" controls>
-  <source src="DarkxSurfer/Teegram-Ecommerce-App/video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
 
 ## Contributing
 
